@@ -11,11 +11,10 @@ import java.util.List;
 
 @Repository
 public interface ReglementRepository extends CrudRepository<Reglement, Long>{
-	@Query("SELECT r FROM Reglement r where r.facture.idFacture=:idFacture")
+	@Query("SELECT r FROM Reglement r where r.idReglement=:idFacture")
 	List<Reglement> retrieveReglementByFacture(@Param("idFacture") Long idFacture);
 
 	
-	@Query("SELECT sum(r.montantPaye) FROM Reglement r where  r.dateReglement between :startDate"
-			+ " and :endDate and r.facture.archivee=false")
+	@Query("SELECT sum(r.montantPaye) FROM Reglement r where r.dateReglement between :startDate and :endDate")
 	float getChiffreAffaireEntreDeuxDate(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 }
