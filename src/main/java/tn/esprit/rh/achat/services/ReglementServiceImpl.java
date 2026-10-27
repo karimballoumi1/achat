@@ -3,7 +3,6 @@ package tn.esprit.rh.achat.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.rh.achat.entities.Reglement;
-import tn.esprit.rh.achat.repositories.FactureRepository;
 import tn.esprit.rh.achat.repositories.ReglementRepository;
 
 import java.util.Date;
@@ -12,8 +11,6 @@ import java.util.List;
 @Service
 public class ReglementServiceImpl implements IReglementService {
 
-	@Autowired
-	FactureRepository factureRepository;
 	@Autowired
 	ReglementRepository reglementRepository;
 	@Override
