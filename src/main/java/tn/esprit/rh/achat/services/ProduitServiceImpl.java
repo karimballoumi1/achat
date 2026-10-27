@@ -4,10 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.rh.achat.entities.Produit;
-import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
 import tn.esprit.rh.achat.repositories.ProduitRepository;
-import tn.esprit.rh.achat.repositories.StockRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -18,8 +16,6 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Autowired
 	ProduitRepository produitRepository;
-	@Autowired
-	StockRepository stockRepository;
 	@Autowired
 	CategorieProduitRepository categorieProduitRepository;
 
@@ -60,10 +56,9 @@ public class ProduitServiceImpl implements IProduitService {
 	@Override
 	public void assignProduitToStock(Long idProduit, Long idStock) {
 		Produit produit = produitRepository.findById(idProduit).orElse(null);
-		Stock stock = stockRepository.findById(idStock).orElse(null);
-		produit.setStock(stock);
-		produitRepository.save(produit);
-
+		if (produit != null) {
+			produitRepository.save(produit);
+		}
 	}
 
 
