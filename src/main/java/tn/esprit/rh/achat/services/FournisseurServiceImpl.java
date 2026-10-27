@@ -8,7 +8,6 @@ import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.entities.SecteurActivite;
 import tn.esprit.rh.achat.repositories.DetailFournisseurRepository;
 import tn.esprit.rh.achat.repositories.FournisseurRepository;
-import tn.esprit.rh.achat.repositories.ProduitRepository;
 import tn.esprit.rh.achat.repositories.SecteurActiviteRepository;
 
 import java.util.Date;
@@ -22,8 +21,6 @@ public class FournisseurServiceImpl implements IFournisseurService {
 	FournisseurRepository fournisseurRepository;
 	@Autowired
 	DetailFournisseurRepository detailFournisseurRepository;
-	@Autowired
-	ProduitRepository produitRepository;
 	@Autowired
 	SecteurActiviteRepository secteurActiviteRepository;
 
